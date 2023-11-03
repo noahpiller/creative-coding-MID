@@ -7,17 +7,20 @@ class Circle {
   constructor(x, y, taille) {
     this.x = x;
     this.y = y;
-    this.taille = taille * 1.9; // La taille du carré
+    this.taille = taille * 2; // La taille du carré
     this.color = "black"; // Couleur par défaut
     this.rotation = 0;
     this.borderRadius = 50;
+    
+    this.image = new Image();
+    this.image.src = "images/tile4.png";
   }
 
   changeColor() {
     const grayValue = Math.random() * 205;
     this.color = `rgb(${grayValue},${grayValue},${grayValue})`;
     this.borderRadius = Math.random() * (this.taille / 2); // Rayon de coin aléatoire
-    this.rotation += (Math.PI / 4); // Augmente l'angle de rotation de 45 degrés
+    this.rotation += (Math.PI / 2); // Augmente l'angle de rotation de 45 degrés
 
     // this.color = `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`;
     // this.taille = Math.random() * 100; // Changer la taille du carré
@@ -38,20 +41,27 @@ class Circle {
     context.save();
     context.translate(this.x, this.y);
     context.rotate(this.rotation);
-    context.fillStyle = this.color;
-    context.fillRect(-this.taille / 2, -this.taille / 2, this.taille, this.taille); // Dessine un carré
+
+    // Dessinez l'image à la place du carré
+    context.drawImage(this.image, -this.taille / 2, -this.taille / 2, this.taille, this.taille);
+
     context.restore();
     context.beginPath();
-    //
-    context.moveTo(-this.taille / 2 + this.borderRadius, -this.taille / 2);
-    context.lineTo(this.taille / 2 - this.borderRadius, -this.taille / 2);
-    context.arcTo(this.taille / 2, -this.taille / 2, this.taille / 2, -this.taille / 2 + this.borderRadius, this.borderRadius);
-    context.lineTo(this.taille / 2, this.taille / 2 - this.borderRadius);
-    context.arcTo(this.taille / 2, this.taille / 2, this.taille / 2 - this.borderRadius, this.taille / 2, this.borderRadius);
-    context.lineTo(-this.taille / 2 + this.borderRadius, this.taille / 2);
-    context.arcTo(-this.taille / 2, this.taille / 2, -this.taille / 2, this.taille / 2 - this.borderRadius, this.borderRadius);
-    context.lineTo(-this.taille / 2, -this.taille / 2 + this.borderRadius);
-    context.arcTo(-this.taille / 2, -this.taille / 2, -this.taille / 2 + this.borderRadius, -this.taille / 2, this.borderRadius);
+
+    // context.fillStyle = this.color;
+    // context.fillRect(-this.taille / 2, -this.taille / 2, this.taille, this.taille); // Dessine un carré
+    // context.restore();
+    // context.beginPath();
+    // //
+    // context.moveTo(-this.taille / 2 + this.borderRadius, -this.taille / 2);
+    // context.lineTo(this.taille / 2 - this.borderRadius, -this.taille / 2);
+    // context.arcTo(this.taille / 2, -this.taille / 2, this.taille / 2, -this.taille / 2 + this.borderRadius, this.borderRadius);
+    // context.lineTo(this.taille / 2, this.taille / 2 - this.borderRadius);
+    // context.arcTo(this.taille / 2, this.taille / 2, this.taille / 2 - this.borderRadius, this.taille / 2, this.borderRadius);
+    // context.lineTo(-this.taille / 2 + this.borderRadius, this.taille / 2);
+    // context.arcTo(-this.taille / 2, this.taille / 2, -this.taille / 2, this.taille / 2 - this.borderRadius, this.borderRadius);
+    // context.lineTo(-this.taille / 2, -this.taille / 2 + this.borderRadius);
+    // context.arcTo(-this.taille / 2, -this.taille / 2, -this.taille / 2 + this.borderRadius, -this.taille / 2, this.borderRadius);
 
   }
 

@@ -63,12 +63,12 @@ function draw() {
 
         // Incrémentez ou décrémentez columnHeight en fonction de la condition
         if (incrementHeight) {
-        columnHeight += 4; // Augmentez la hauteur
+        columnHeight += 4; // Augmenter la hauteur
         } else {
-        columnHeight -= 4; // Diminuez la hauteur
+        columnHeight -= 4; // Diminuer la hauteur
         }
 
-        // Vérifiez si columnHeight atteint windowWidth, puis inversez la direction
+        //  si columnHeight atteint windowWidth, inverser la direction
         if (columnHeight >= windowWidth/4) {
         incrementHeight = false;
         rectRadius = 7;
@@ -88,13 +88,13 @@ function draw() {
     noStroke();
     rect(windowWidth/2 - yellowWidth/2, height/2 - columnHeight/2, yellowWidth, columnHeight, yellowRectRadius)
 
-    let noiseScale=0.02;
+    // let noiseScale=0.02;
 
-    for (let x=0; x < width; x++) {
-    let noiseVal = noise((mouseX * x/50000)*noiseScale, mouseY*noiseScale);
-    stroke(noiseVal*10);
-    line(x, noiseVal++ *1500, x, height);
-    }
+    // for (let x=0; x < width; x++) {
+    // let noiseVal = noise((mouseX * x/50000)*noiseScale, mouseY*noiseScale);
+    // stroke(noiseVal*10);
+    // line(x, noiseVal++ *1500, x, height);
+    // }
 
     // var rectRadius = 0;
     // var yellowRectRadius = 0;
